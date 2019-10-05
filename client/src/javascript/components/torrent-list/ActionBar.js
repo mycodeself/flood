@@ -1,19 +1,19 @@
 import classnames from 'classnames';
-import {injectIntl} from 'react-intl';
 import React from 'react';
-
-import Action from './Action';
-import Add from '../icons/Add';
-import connectStores from '../../util/connectStores';
+import {injectIntl} from 'react-intl';
+import TorrentActions from '../../actions/TorrentActions';
+import UIActions from '../../actions/UIActions';
 import EventTypes from '../../constants/EventTypes';
-import Remove from '../icons/Remove';
 import SettingsStore from '../../stores/SettingsStore';
-import SortDropdown from './SortDropdown';
+import TorrentStore from '../../stores/TorrentStore';
+import connectStores from '../../util/connectStores';
+import Add from '../icons/Add';
+import Remove from '../icons/Remove';
 import StartIcon from '../icons/StartIcon';
 import StopIcon from '../icons/StopIcon';
-import TorrentActions from '../../actions/TorrentActions';
-import TorrentStore from '../../stores/TorrentStore';
-import UIActions from '../../actions/UIActions';
+import Action from './Action';
+import SortDropdown from './SortDropdown';
+import {TorrentSearch} from '../torrent-search/TorrentSearch';
 
 class ActionBar extends React.Component {
   handleAddTorrents() {
@@ -46,6 +46,7 @@ class ActionBar extends React.Component {
 
     return (
       <nav className={classes}>
+        <TorrentSearch />
         <div className="actions action-bar__item action-bar__item--sort-torrents">
           <SortDropdown
             direction={this.props.sortBy.direction}
